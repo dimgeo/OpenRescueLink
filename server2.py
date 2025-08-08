@@ -22,19 +22,16 @@ import threading
 import time
 import json
 import requests
+from config import (
+    SIGNAL_CLI_USER, ROCKBLOCK_URL, ROCKBLOCK_USERNAME, 
+    ROCKBLOCK_PASSWORD, ROCKBLOCK_IMEI, POLL_INTERVAL, 
+    ALLOWED_NUMBERS_FILE
+)
 
 app = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
-SIGNAL_CLI_USER = "+31626146216"      # <-- jouw Signal-afzender
-ROCKBLOCK_URL = "https://rockblock.rock7.com/rockblock/MT"
-ROCKBLOCK_USERNAME = "dg@biodys.com"  # Replace with actual username
-ROCKBLOCK_PASSWORD = "rHP-Hhq-M9s-iAz"  # Replace with actual password
-ROCKBLOCK_IMEI = 301434061994700
-# ROCKBLOCK_IMEI = "300434065264590"  # Replace with actual IMEI
-POLL_INTERVAL = 30  # seconds
-ALLOWED_NUMBERS_FILE = "signal.allowed"  # Whitelist bestand
-
+# Configuration imported from config.py
 
 def process_signal_async(imei, transmit_time, message, recipient):
     try:

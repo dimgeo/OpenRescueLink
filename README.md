@@ -9,7 +9,14 @@ A Flask-based gateway server that bridges satellite SBD (Short Burst Data) commu
 - **Auto-authorization**: Automatically authorizes phone numbers that send messages via satellite
 - **Real-time Processing**: Handles webhook responses within 3 seconds using asynchronous threading
 - **Message Format Support**: Handles hex-encoded satellite data and plain text Signal messages
-- **Logging**: Comprehensive logging for monitoring and debugging
+- **Extensive Debug Logging**: Comprehensive logging for monitoring and debugging including:
+  - Poll round numbering and tracking
+  - Signal-cli exit codes and output details
+  - JSON parsing status and message counting
+  - Complete message data structure logging
+  - Authorization check results
+  - RockBLOCK API interaction status
+- **Continuous Signal Polling**: Polls Signal messages every 5 seconds for real-time forwarding
 
 ## Requirements
 
@@ -76,9 +83,10 @@ The server will start on `0.0.0.0:8999` and begin polling for Signal messages.
 ## How It Works
 
 1. **Incoming Satellite Messages**: Webhook receives hex data, decodes to text, extracts phone number if present, and forwards to Signal
-2. **Outgoing Messages**: Polls Signal for new messages, validates sender against whitelist, and forwards via RockBLOCK API
+2. **Outgoing Messages**: Continuously polls Signal every 5 seconds for new messages, validates sender against whitelist, and forwards via RockBLOCK API
 3. **Security**: Whitelist system prevents unauthorized access from unknown phone numbers
 4. **Auto-authorization**: Phone numbers sending via satellite are automatically added to whitelist
+5. **Debug Monitoring**: Extensive logging tracks all operations including Signal CLI responses, JSON parsing, message processing, and API interactions
 
 ## License
 
