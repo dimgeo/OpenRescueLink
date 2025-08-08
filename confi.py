@@ -1,5 +1,6 @@
 # Configuration file for SBD server
-# Keep this file out of version control!
+# Below credentials are fake placeholders. Replace with actual and rename file to config.py
+
 
 SIGNAL_CLI_USER = "+3163209409"      # <-- Your signal phone number
 ROCKBLOCK_URL = "https://rockblock.rock7.com/rockblock/MT"
