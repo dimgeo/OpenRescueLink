@@ -27,7 +27,7 @@ A Flask-based gateway server that bridges satellite SBD (Short Burst Data) commu
 
 ## Configuration
 
-Before running, update the following configuration variables in `server2.py`:
+Before running, update the following configuration variables in `confi.py` and rename the file to `config.py`:
 
 ```python
 SIGNAL_CLI_USER = "+31626146216"      # Your Signal sender number
